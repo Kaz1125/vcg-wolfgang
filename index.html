@@ -74,7 +74,7 @@
   .gang-name-jp {
     font-family: 'Noto Serif JP', serif;
     font-weight: 900;
-    font-size: clamp(36px, 7vw, 56px);
+    font-size: clamp(48px, 9vw, 72px);
     letter-spacing: 0.25em;
     color: var(--fire-light);
     text-shadow:
@@ -86,7 +86,7 @@
 
   .gang-name-en {
     font-family: 'Cinzel', serif;
-    font-size: clamp(11px, 2vw, 15px);
+    font-size: clamp(14px, 2.5vw, 20px);
     letter-spacing: 0.45em;
     color: var(--fire);
     text-shadow: 0 0 12px rgba(232,125,10,0.5);
@@ -94,7 +94,7 @@
   }
 
   .gang-subtitle {
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.35em;
     color: var(--text-dim);
     text-transform: uppercase;
@@ -123,7 +123,7 @@
 
   .org-label {
     font-family: 'Cinzel', serif;
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 0.5em;
     color: var(--text-dim);
     text-transform: uppercase;
@@ -168,12 +168,24 @@
 
   /* row wrapper for boss + advisor */
   .row {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
   }
-  .row-spacer { flex: 0 0 170px; }
+  .row-spacer { display: none; }
+  .tier-boss {
+    position: relative;
+    z-index: 2;
+  }
+  .advisor-side {
+    position: absolute;
+    left: calc(50% + 130px);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
 
   /* dash connector to advisor */
   .dash-line {
@@ -210,11 +222,11 @@
   }
 
   .card-label {
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.3em;
     color: var(--text-dim);
     text-transform: uppercase;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
   }
   .card-name {
     font-weight: 700;
@@ -222,74 +234,78 @@
     white-space: nowrap;
   }
   .card-sub {
-    font-size: 9px;
+    font-size: 12px;
     color: var(--text-dim);
-    margin-top: 4px;
+    margin-top: 6px;
     letter-spacing: 0.15em;
   }
 
   /* ── BOSS ── */
   .tier-boss .card {
-    border-color: var(--fire-light);
-    background: linear-gradient(135deg, #1c1000, #0d0808);
-    box-shadow: 0 0 40px var(--fire-glow), 0 0 80px var(--fire-dim), inset 0 0 30px rgba(232,125,10,0.07);
+    border-color: #c00004;
+    background: linear-gradient(135deg, #2a0001, #0d0000);
+    box-shadow: 0 0 40px rgba(138,0,2,0.5), 0 0 80px rgba(138,0,2,0.2), inset 0 0 30px rgba(138,0,2,0.1);
     min-width: 220px;
     padding: 18px 44px;
   }
-  .tier-boss .card-label { color: var(--fire-light); font-size: 10px; }
-  .tier-boss .card-name  { font-size: 22px; color: var(--fire-pale); text-shadow: 0 0 16px rgba(232,125,10,0.6); }
+  .tier-boss .card-label { color: #ff4444; font-size: 13px; }
+  .tier-boss .card-name  { font-size: 30px; color: #ff6666; text-shadow: 0 0 16px rgba(138,0,2,0.8); }
 
   /* ── ADVISOR ── */
   .tier-advisor .card {
-    border-color: #382010;
-    background: linear-gradient(135deg, #130d04, #0d0b10);
+    border-color: #3498db;
+    background: linear-gradient(135deg, #010d1a, #030e1c);
+    box-shadow: 0 0 18px rgba(52,152,219,0.3);
     min-width: 120px;
     padding: 10px 18px;
   }
-  .tier-advisor .card-label { color: #604020; font-size: 8px; }
-  .tier-advisor .card-name  { font-size: 13px; color: #c09060; }
+  .tier-advisor .card-label { color: #5ab4f0; font-size: 11px; }
+  .tier-advisor .card-name  { font-size: 17px; color: #7ec8f5; }
 
   /* ── UNDERBOSS ── */
   .tier-underboss .card {
-    border-color: #7a4a10;
-    background: linear-gradient(135deg, #130e00, #0d0d14);
-    box-shadow: 0 0 18px rgba(180,100,20,0.15);
+    border-color: #9400c8;
+    background: linear-gradient(135deg, #1a0028, #0d0014);
+    box-shadow: 0 0 24px rgba(94,0,134,0.4);
     min-width: 220px;
     padding: 14px 36px;
   }
-  .tier-underboss .card-label { color: #c07828; }
-  .tier-underboss .card-name  { font-size: 18px; color: #e09830; }
+  .tier-underboss .card-label { color: #c060e0; font-size: 12px; }
+  .tier-underboss .card-name  { font-size: 26px; color: #d880ff; }
 
   /* ── EXEC ── */
   .tier-exec .card {
-    border-color: #1e3050;
-    background: linear-gradient(135deg, #090e18, #0c1228);
+    border-color: #a84300;
+    background: linear-gradient(135deg, #1e0c00, #120800);
+    box-shadow: 0 0 18px rgba(168,67,0,0.3);
     min-width: 220px;
     padding: 13px 32px;
   }
-  .tier-exec .card-label { color: #3a5878; }
-  .tier-exec .card-name  { font-size: 16px; color: #b0c8e0; }
+  .tier-exec .card-label { color: #d06020; font-size: 12px; }
+  .tier-exec .card-name  { font-size: 22px; color: #e07840; }
 
   /* ── MEMBER ── */
   .tier-member .card {
-    border-color: #182030;
-    background: linear-gradient(135deg, #080c14, #0a0e1c);
+    border-color: #e67e22;
+    background: linear-gradient(135deg, #1e1000, #150c00);
+    box-shadow: 0 0 16px rgba(230,126,34,0.25);
     min-width: 220px;
     padding: 13px 32px;
   }
-  .tier-member .card-label { color: #3a4860; }
-  .tier-member .card-name  { font-size: 16px; color: #90a8c0; }
+  .tier-member .card-label { color: #e69040; font-size: 12px; }
+  .tier-member .card-name  { font-size: 22px; color: #f0a050; }
 
   /* ── ASSOCIATE ── */
   .tier-assoc .card {
-    border-color: #101820;
-    background: linear-gradient(135deg, #060a10, #080c16);
+    border-color: #f1c40f;
+    background: linear-gradient(135deg, #1a1600, #120f00);
+    box-shadow: 0 0 16px rgba(241,196,15,0.2);
     min-width: 220px;
     padding: 13px 32px;
     opacity: 0.9;
   }
-  .tier-assoc .card-label { color: #2a3848; font-size: 8px; }
-  .tier-assoc .card-name  { font-size: 15px; color: #607888; }
+  .tier-assoc .card-label { color: #d4a800; font-size: 12px; }
+  .tier-assoc .card-name  { font-size: 21px; color: #f5d44a; }
 
   /* ═══════════════════════════════════
      LEGEND
@@ -309,7 +325,7 @@
     display: flex;
     align-items: center;
     gap: 7px;
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 0.18em;
     color: var(--text-dim);
   }
@@ -349,8 +365,7 @@
         <div class="card-sub">樋口 和</div>
       </div>
     </div>
-    <div style="display:flex;align-items:center;flex:0 0 170px;">
-      <div class="dash-line"></div>
+    <div class="advisor-side" style="">
       <div class="tier-advisor">
         <div class="card">
           <div class="card-label">CONSIGLIERE</div>
@@ -409,12 +424,12 @@
 
 <!-- ═══ LEGEND ═══ -->
 <div class="legend">
-  <div class="legend-item"><div class="legend-swatch" style="border-color:var(--fire-light);background:#1c1000;"></div>BOSS／ボス</div>
-  <div class="legend-item"><div class="legend-swatch" style="border-color:#382010;background:#130d04;"></div>CONSIGLIERE／顧問</div>
-  <div class="legend-item"><div class="legend-swatch" style="border-color:#7a4a10;background:#130e00;"></div>UNDERBOSS／アンダーボス</div>
-  <div class="legend-item"><div class="legend-swatch" style="border-color:#1e3050;background:#090e18;"></div>CAPO／幹部</div>
-  <div class="legend-item"><div class="legend-swatch" style="border-color:#182030;background:#080c14;"></div>LUPO／構成員</div>
-  <div class="legend-item"><div class="legend-swatch" style="border-color:#101820;background:#060a10;"></div>ASSOCIATE／準構成員</div>
+  <div class="legend-item"><div class="legend-swatch" style="border-color:#c00004;background:#2a0001;"></div>BOSS／ボス</div>
+  <div class="legend-item"><div class="legend-swatch" style="border-color:#3498db;background:#010d1a;"></div>CONSIGLIERE／顧問</div>
+  <div class="legend-item"><div class="legend-swatch" style="border-color:#9400c8;background:#1a0028;"></div>UNDERBOSS／アンダーボス</div>
+  <div class="legend-item"><div class="legend-swatch" style="border-color:#a84300;background:#1e0c00;"></div>CAPO／幹部</div>
+  <div class="legend-item"><div class="legend-swatch" style="border-color:#e67e22;background:#1e1000;"></div>LUPO／構成員</div>
+  <div class="legend-item"><div class="legend-swatch" style="border-color:#f1c40f;background:#1a1600;"></div>ASSOCIATE／準構成員</div>
 </div>
 
 </body>
